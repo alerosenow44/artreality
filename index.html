@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART SHOWDOWN - La Guerra dei Colori</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        /* HEADER */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ff4500;
+            text-shadow: 2px 2px 5px black;
+        }
+        
+        .subtitle {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffcc00;
+            font-style: italic;
+        }
+        
+        .cta-btn {
+            padding: 15px 40px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background: #ff6347;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff4500;
+        }
+        
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffcc00;
+        }
+        
+        /* EPISODE SECTION */
+        .episode-info {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #ff4500;
+        }
+        
+        .episode-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        /* TEAMS SECTION */
+        .teams {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .team {
+            flex: 1;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        
+        .artists {
+            background-color: #003366;
+            border: 2px solid #00ccff;
+        }
+        
+        .saboteurs {
+            background-color: #660000;
+            border: 2px solid #ff4500;
+        }
+        
+        .team h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .team-member {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 5px;
+        }
+        
+        /* COUNTDOWN */
+        .countdown {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #111;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .teams {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ART SHOWDOWN</h1>
+        <p class="subtitle">Capitolo 4: La Guerra dei Colori</p>
+        <p>Gli artisti contro i sabotatori che hanno distrutto l'atelier</p>
+        <button class="cta-btn" id="ctaBtn">GUARDA L'EPISODIO</button>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h2>LA BATTAGLIA</h2>
+            
+            <div class="episode-info">
+                <p>Dopo il vile attacco dei sabotatori che hanno rovinato l'atelier principale, gli artisti devono:</p>
+                <ul>
+                    <li>Ricreare le opere danneggiate in sole 4 ore</li>
+                    <li>Usare solo materiali recuperati dai detriti</li>
+                    <li>Smascherare il sabotatore infiltrato</li>
+                </ul>
+            </div>
+            
+            <div class="teams">
+                <div class="team artists">
+                    <h3>GLI ARTISTI</h3>
+                    <div id="artistsList"></div>
+                </div>
+                
+                <div class="team saboteurs">
+                    <h3>I SABOTATORI</h3>
+                    <div id="saboteursList"></div>
+                </div>
+            </div>
+            
+            <div class="countdown">
+                <p>PROSSIMO EPISODIO IN:</p>
+                <div class="timer" id="countdown">07g : 23h : 59m</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2023 ART SHOWDOWN - Tutti i diritti riservati</p>
+    </footer>
+
+    <script>
+        // Dati dei partecipanti
+        const participants = {
+            artists: [
+                "Alessia Neri - Pittrice",
+                "Marco Gialli - Scultore",
+                "Elena Blu - Digital Artist",
+                "Davide Verdi - Street Artist",
+                "Sara Rossi - Fotografa",
+                "Luca Bianchi - Installazioni"
+            ],
+            saboteurs: [
+                "Il Fantasma - Esperto di travestimenti",
+                "L'Architetto - Maestro degli inganni",
+                "La Chimica - Specialista in reazioni... creative"
+            ]
+        };
+
+        // Popola le squadre
+        function populateTeams() {
+            const artistsList = document.getElementById('artistsList');
+            const saboteursList = document.getElementById('saboteursList');
+
+            participants.artists.forEach(artist => {
+                const div = document.createElement('div');
+                div.className = 'team-member';
+                div.textContent = artist;
+                artistsList.appendChild(div);
+            });
+
+            participants.saboteurs.forEach(saboteur => {
+                const div = document.createElement('div');
+                div.className = 'team-member';
+                div.textContent = saboteur;
+                saboteursList.appendChild(div);
+            });
+        }
+
+        // Countdown
+        function updateCountdown() {
+            const now = new Date();
+            const nextEpisode = new Date();
+            
+            // Imposta la data del prossimo episodio (7 giorni da oggi)
+            nextEpisode.setDate(now.getDate() + 7);
+            nextEpisode.setHours(20, 0, 0, 0);
+            
+            const diff = nextEpisode - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown').textContent = 
+                `${days}g : ${hours}h : ${Math.floor(minutes)}m`;
+        }
+
+        // Bottone CTA
+        document.getElementById('ctaBtn').addEventListener('click', () => {
+            alert("L'episodio sarà disponibile a breve su Netflix e Amazon Prime!");
+        });
+
+        // Inizializzazione
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTeams();
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Aggiorna ogni minuto
+        });
+    </script>
+</body>
+</html>
